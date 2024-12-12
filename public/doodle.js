@@ -1,10 +1,9 @@
-const socket = io()
 
 // Your Phaser game setup
 const config = {
     type: Phaser.AUTO,
-    width: 800,
-    height: 600,
+    width: 1920,
+    height: 1080,
     backgroundColor: '#2d2d2d',
     scene: {
         preload: preload,
@@ -43,6 +42,7 @@ let resetTime = getResetTime(startTime);
 let humanStartTime = new Date(startTime);
 let humanResetTime = new Date(resetTime);
 
+// Show preloader text if preloading is needed
 
 
 // Initialize variables
@@ -52,11 +52,15 @@ function preload() {
     console.log("Board starts on: ", humanStartTime);
     console.log("Board closes on: ", humanResetTime);
     console.log('Foxes are preloading doodle board...');
-    // Load assets here if needed
+    // Preload any assets here
+
 }
 
 function create() {
     console.log('Doodle app started');
+
+
+
     const time = this.add.text(0, 0, `Board session will reset: ${humanResetTime}`, { font: '12px Arial', fill: '#ffffff' });
     // Set time to the very front of all elements
     time.setDepth(1000)
